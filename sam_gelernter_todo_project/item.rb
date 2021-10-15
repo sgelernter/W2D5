@@ -18,9 +18,15 @@ class Item
         @deadline = deadline
         @description = description
         raise "Sorry, that is not a valid date" if !Item.valid_date?(@deadline)
+        @completed = false 
     end
 
     attr_accessor :title, :deadline, :description
+    attr_reader :completed
+
+    def toggle
+        @completed ? @completed = false : @completed = true
+    end
 end
 
 

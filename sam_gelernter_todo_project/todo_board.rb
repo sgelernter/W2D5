@@ -26,9 +26,15 @@ class ToDo
         when "sort"
             @list.sort_by_date!
         when "priority"
-            @list.print_full_item(0)
+            @list.print_priority
         when "print"
-            args.empty? ? @list.print : @list.print_full_item(args[0].to_i)
+            args.empty? ? @list.print : @list.print_full_item(args.first.to_i)
+        when "toggle"
+            @list.toggle_item(args.first.to_i)
+        when "rm"
+            @list.remove_item(args.first.to_i)
+        when "purge"
+            @list.purge
         when "quit"
             return false
         end

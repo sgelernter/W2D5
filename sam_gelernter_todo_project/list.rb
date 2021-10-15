@@ -40,17 +40,21 @@ class List
         @items.first
     end
 
+    def print_completion(idx)
+        @items[idx].completed ? "\u2713" : "X"
+    end
+
     def print
         puts "-----------------#{self.label.upcase}------------------"
         @items.each.with_index do |item, i|
-            puts "#{i.to_s.ljust(5)}| #{item.title.ljust(20)}| #{item.deadline}"
+            puts "#{i.to_s.ljust(4)}#{self.print_completion(i)}  #{item.title.ljust(20)}| #{item.deadline}"
         end
         puts "---------------------------------------"
     end
 
     def print_full_item(idx)
         puts "---------------------------------------"
-        puts "~ #{self[idx].title.ljust(30)}#{self[idx].deadline}"
+        puts "#{self.print_completion(idx)} - #{self[idx].title.ljust(30)}#{self[idx].deadline}"
         puts "#{self[idx].description}"
         puts "---------------------------------------"
     end
@@ -85,6 +89,20 @@ class List
         @items.sort_by! { |item| item.deadline }
     end
 
+    def toggle_item(idx)
+        @items[idx].toggle
+    end
+
+    def remove_item(idx)
+        return false if idx > @items.length - 1
+        @items.delete_at(idx)
+        true
+    end
+
+    def purge
+        @items.delete_if { |item| item.completed }
+    end
+
 end
 
 testList = List.new("test")
@@ -93,6 +111,13 @@ testList.add_item("groceries", "2021-10-16", "get them groceries")
 testList.add_item("dishes", "2021-11-18", "scrub a dub dub, baby")
 testList.add_item("work out", "2022-6-2", "it's gotta happen eventually, baby")
 
+testList.print
+testList.toggle_item(0)
+testList.toggle_item(2)
+testList.print
+testList.purge
+testList.print_priority
+# testList.toggle_item(2)
 # testList.print
 # testList.down(0,2)
 # testList.print
