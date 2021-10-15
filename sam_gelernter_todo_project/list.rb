@@ -105,18 +105,18 @@ class List
 
 end
 
-testList = List.new("test")
-testList.add_item("laundry", "1617-7-2", "dang, that's some old-ass laundry bruh")
-testList.add_item("groceries", "2021-10-16", "get them groceries")
-testList.add_item("dishes", "2021-11-18", "scrub a dub dub, baby")
-testList.add_item("work out", "2022-6-2", "it's gotta happen eventually, baby")
+# testList = List.new("test")
+# testList.add_item("laundry", "1617-7-2", "dang, that's some old-ass laundry bruh")
+# testList.add_item("groceries", "2021-10-16", "get them groceries")
+# testList.add_item("dishes", "2021-11-18", "scrub a dub dub, baby")
+# testList.add_item("work out", "2022-6-2", "it's gotta happen eventually, baby")
 
-testList.print
-testList.toggle_item(0)
-testList.toggle_item(2)
-testList.print
-testList.purge
-testList.print_priority
+# testList.print
+# testList.toggle_item(0)
+# testList.toggle_item(2)
+# testList.print
+# testList.purge
+# testList.print_priority
 # testList.toggle_item(2)
 # testList.print
 # testList.down(0,2)

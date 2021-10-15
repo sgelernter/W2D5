@@ -46,3 +46,6 @@ class ToDo
         end
     end
 end
+
+list = ToDo.new("To Do")
+list.run
