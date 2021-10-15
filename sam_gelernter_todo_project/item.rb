@@ -8,6 +8,7 @@ class Item
         elements = date_string.split("-")
         return false if elements.length != 3
         return false if elements.any? {|ele| ele.to_i.to_s != ele }
+        return false if elements[0].length != 4
         return false if !months.include?(elements[1].to_i) || !days.include?(elements[2].to_i)
         true
     end
